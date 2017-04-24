@@ -213,10 +213,7 @@ public class SendEmailActivity extends Activity {
                 ActivityCompat.requestPermissions(SendEmailActivity.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, CHOOSER_CODE);
             }
         }
-        System.out.println("MADE IT HERE");
         startActivityForResult(intent, CHOOSER_CODE);
-        System.out.println("MADE IT HERE");
-
     }
 
     /**
@@ -278,7 +275,6 @@ public class SendEmailActivity extends Activity {
         attachment = true;
         attachmentGrid.setVisibility(View.VISIBLE);
         deleteAttButton.setVisibility(View.VISIBLE);
-        System.out.println("IN HEREEEEE");
         if(attachmentAdapter == null) {
             attachmentAdapter = new AttachmentAdapter(context, attachments);
             attachmentGrid.setAdapter(attachmentAdapter);

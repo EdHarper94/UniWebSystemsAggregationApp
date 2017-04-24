@@ -55,12 +55,12 @@ public class PerformIntranetLogin extends AsyncTask<Void, Void, String> {
     private int statusCode;
     private String loginCheck;
 
-    private LoginTaskCounter lc;
+    private LoginTaskCounter loginTaskCounter;
 
     public PerformIntranetLogin(String username, String password, LoginTaskCounter lc, PerformIntranetLogin.PerformIntranetLoginResponse delegate){
         this.username = username;
         this.password = password;
-        this.lc = lc;
+        this.loginTaskCounter = lc;
         this.delegate = delegate;
     }
 
@@ -102,8 +102,6 @@ public class PerformIntranetLogin extends AsyncTask<Void, Void, String> {
             //Store cookies
             cookies = loginReq.cookies();
             cookieStorage.storeCookies(cookies, LOGIN_URL);
-            // DEBUG CODE
-            System.out.println(cookies);
 
             Document checkSuccess = Jsoup
                     .connect(CHECK_URL)
@@ -143,9 +141,9 @@ public class PerformIntranetLogin extends AsyncTask<Void, Void, String> {
             result = SUCCESS;
         }
         // Set result of async task
-        System.out.println("Finished Intranet Login Req");
         delegate.loginFinished(result);
 
-        lc.taskFinished();
+        // Notify counter task has finished
+        loginTaskCounter.taskFinished();
     }
 }

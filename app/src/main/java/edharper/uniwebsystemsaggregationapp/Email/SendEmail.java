@@ -108,8 +108,7 @@ public class SendEmail extends AsyncTask<Void, Void, String> {
         try {
             // Create new message object and add details
             Message mm = new MimeMessage(session);
-            mm.setFrom(new InternetAddress((EmailUser.getEmailAddress()),
-                    EmailUser.getFirstName() + " " + EmailUser.getLastName() ));
+            mm.setFrom(new InternetAddress((EmailUser.getEmailAddress())));
 
             // Add subject
             mm.setSubject(outEmail.getSubject());

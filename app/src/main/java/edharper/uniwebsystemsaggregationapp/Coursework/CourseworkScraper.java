@@ -356,8 +356,6 @@ public class CourseworkScraper extends Activity {
                 // Trim the content
                 Element page = htmlDoc.getElementById(PAGE_CONTENTS);
 
-                System.out.println(cookies);
-
                 // Coursework we are looking for
                 if(type.equals(CURRENT_CW)){
                     currentCoursework(page);

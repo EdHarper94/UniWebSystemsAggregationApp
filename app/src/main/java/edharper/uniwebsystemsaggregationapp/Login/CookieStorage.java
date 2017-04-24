@@ -39,7 +39,6 @@ public class CookieStorage {
                 }
             }else{
             }
-            System.out.println(hostCookieMap);
         }catch (Exception e){
 
         }
@@ -55,7 +54,6 @@ public class CookieStorage {
             URI uri = getUri(stringUrl);
             if (hostCookieMap.containsKey(uri)) {
                 cookies = hostCookieMap.get(uri);
-                System.out.println("FROM COOKIE STORE "+ cookies);
             }
         }catch(Exception e){
 

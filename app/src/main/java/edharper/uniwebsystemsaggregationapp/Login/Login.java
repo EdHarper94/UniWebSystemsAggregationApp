@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import edharper.uniwebsystemsaggregationapp.Email.EmailUser;
 import edharper.uniwebsystemsaggregationapp.R;
 /**
  * @file Login.java
@@ -36,6 +37,9 @@ public class Login extends Activity{
     private Boolean BBConnection = false;
     private Boolean BBSuccess = false;
 
+    private String username;
+    private String password;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +55,8 @@ public class Login extends Activity{
             @Override
             public void onClick(View view) {
                 LoginTaskCounter lc = new LoginTaskCounter(context, 2);
-                String username = usernameField.getText().toString();
-                String password = passwordField.getText().toString();
+                username = usernameField.getText().toString();
+                password = passwordField.getText().toString();
 
                 // Check fields have something in them
                 if(username.equals("") || password.equals("")) {
@@ -66,7 +70,7 @@ public class Login extends Activity{
                         @Override
                         // Check the result
                         public void loginFinished(String result) {
-                            System.out.println("INTRANET RESULT = "+ result);
+
                             if(!result.equals(CONNECTION_FAIL)){
                                 intranetConnection = true;
                             }
@@ -82,7 +86,6 @@ public class Login extends Activity{
                         new PerformBBLogin(username, password, lc, new PerformBBLogin.PerformBBLoginResponse() {
                             @Override
                             public void loginResult(String result) {
-                                System.out.println("BB RESULT = "+ result);
                                 if(!result.equals(CONNECTION_FAIL)){
                                     BBConnection = true;
                                 }
@@ -103,9 +106,14 @@ public class Login extends Activity{
             @Override
             public void onReceive(Context context, Intent intent) {
                 progressBar.setVisibility(View.GONE);
-                System.out.println("BROADCASE RECEIEVED");
                 if (checkLoginsWereSucessful()) {
+                    // Notify user
                     Toast.makeText(context, "Login Successful...", Toast.LENGTH_SHORT).show();
+
+                    // Set email credentials
+                    setEmailCredentials();
+
+                    // Go to homescreen
                     Intent menuIntent = new Intent("edharper.uniwebsystemsaggregationapp.HomeScreen");
                     startActivity(menuIntent);
                 } else {
@@ -124,9 +132,15 @@ public class Login extends Activity{
         if(intranetSuccess && BBSuccess){
             return true;
         }else{
-            System.out.println("FAIL : " + intranetSuccess + " " + BBSuccess);
             return false;
         }
+    }
+
+    /**
+     * Set users email credentials
+     */
+    public void setEmailCredentials(){
+        EmailUser emailUser = new EmailUser(username, password);
     }
 
 

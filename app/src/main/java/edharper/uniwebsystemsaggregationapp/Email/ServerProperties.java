@@ -32,7 +32,7 @@ public class ServerProperties {
         props.setProperty("mail.store.protocol", serverSettings.getInProtocol());
         // SSL settings
         props.put("mail.imaps.ssl.enable", serverSettings.getIncSll());
-        props.put("mail.imaps.timeout", 1000);
+        props.put("mail.imaps.timeout", 15000);
         return props;
     }
 
@@ -54,7 +54,7 @@ public class ServerProperties {
         props.put("mail.smtp.socketFactor.fallback", "false");
         props.put("mail.smtp.starttls.enable", true);
 
-        props.put("mail.smtp.connectiontimeout", "5000");
+        props.put("mail.smtp.connectiontimeout", 10000);
 
         return props;
     }
