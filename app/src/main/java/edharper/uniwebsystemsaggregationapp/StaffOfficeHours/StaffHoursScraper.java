@@ -43,8 +43,9 @@ public class StaffHoursScraper extends Activity {
 
     // Final html parsing selector variables
     private final String TABLE = "table";
+    private final String TABLE_HEADING = "th";
     private final String TABLE_ROW = "tr";
-    private final String TABLE_COLUMN = "td";
+    private final String TABLE_CELL = "td";
 
     // Final variables for missing office hours
     private final String MISSING_HOURS = "NOT SPECIFIED";
@@ -152,6 +153,7 @@ public class StaffHoursScraper extends Activity {
      */
     public void parseHtml(Document htmlDoc){
         Element table = htmlDoc.select(TABLE).first();
+        Elements headings = htmlDoc.select(TABLE_HEADING);
         Elements rows = table.select(TABLE_ROW);
 
         // Init empty variables
@@ -162,7 +164,7 @@ public class StaffHoursScraper extends Activity {
         // Loop through rows
         for(int i=1; i<rows.size(); i++){
             Element row = rows.get(i);
-            Elements cols = row.select(TABLE_COLUMN);
+            Elements cols = row.select(TABLE_CELL);
             // Loop through columns
             for(int j=0; j<cols.size(); j++){
                 fullName = cols.get(0).text().trim();

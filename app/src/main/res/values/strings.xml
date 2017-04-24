@@ -33,6 +33,9 @@
 
     <!-- HOURS SCRAPER -->
     <string name="hours_title_view">Staff Office Hours List:</string>
+    <string name="lecturer_text_view_header">Lecturer</string>
+    <string name="hours_text_view_header">Hours</string>
+    <string name="updated_text_view_header">Last Updated</string>
 
 <!-- EMAIL STRINGS -->
     <!-- INBOX BUTTONS !-->

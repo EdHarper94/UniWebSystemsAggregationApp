@@ -22,6 +22,32 @@
             android:textSize="20dp"
             android:layout_marginLeft="10dp"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/lecturer_text_view_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lecturer_text_view_header"
+            android:layout_weight="0"
+            android:gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/hours_text_view_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hours_text_view_header"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/updated_text_view_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/updated_text_view_header"
+            android:layout_weight="0"
+            android:gravity="center"/>
+
+    </LinearLayout>
     <!-- Office Hours List -->
     <ListView
         android:id="@+id/staff_hours_list"
