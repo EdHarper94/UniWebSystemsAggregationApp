@@ -1,3 +1,66 @@
 <resources>
     <string name="app_name">UniWebSystemsAggregationApp</string>
+
+    <!-- Home Button -->
+    <string name="home_button">Home</string>
+    <!-- Back Button -->
+    <string name="back_button">Back</string>
+
+    <!-- HOME SCREEN -->
+    <!-- Buttons -->
+    <string name="timetable_button">Timetable</string>
+    <string name="coursework_button">Courseworks</string>
+    <string name="staff_hours_button">Staff Office Hours</string>
+    <string name="email_client_button">Email</string>
+
+<!-- SCIENCE INTRANET SCRAPER STRINGS -->
+    <!-- LOGIN SCREEN -->
+    <string name="login_title">Login</string>
+    <string name="username_input_field">Enter Username...</string>
+    <string name="password_input_field">Enter Password...</string>
+    <string name="login_button">Login</string>
+
+    <!-- TIMETABLE SCRAPER -->
+    <!-- Buttons -->
+    <string name="next_week_button">Next Week</string>
+    <string name="previous_week_button">Prev. Week</string>
+
+    <!-- COURSEWORK MENU-->
+    <!-- Buttons -->
+    <string name="current_cw_button">Current Courseworks</string>
+    <string name="received_cw_button">Received Courseworks</string>
+    <string name="future_cw_button">Future Courseworks</string>
+
+    <!-- HOURS SCRAPER -->
+    <string name="hours_title_view">Staff Office Hours List:</string>
+
+<!-- EMAIL STRINGS -->
+    <!-- INBOX BUTTONS !-->
+    <string name="create_email_button">+ New</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="edit_button">Edit</string>
+    <string name="mark_button">Unread/Read</string>
+    <string name="delete_button">Delete</string>
+    <string name="check_all_button">Un/Check All</string>
+
+    <!-- EMAIL VIEW !-->
+    <string name="reply_button">Reply</string>
+    <string name="download_button">Download Attachments</string>
+
+    <!-- SEND VIEW !-->
+    <string name="discard_button">Discard</string>
+    <string name="add_attachment_button">+ Insert</string>
+    <string name="send_button">Send</string>
+
+    <string name="to_edit_text_label">To:</string>
+    <string name="add_recipients_button">+</string>
+    <string name="cc_bcc_button">Cc/Bcc</string>
+    <string name="cc_edit_text_label">Cc: </string>
+    <string name="bcc_edit_text_label">Bcc: </string>
+    <string name="subject_edit_text_label">Subject:</string>
+    <string name="message_hint">Please enter your message...</string>
+    <string name="delete_attachment_button">Delete</string>
+
+<!-- BLACKBOARD MODULE SCRAPER STRINGS -->
+    <string name="module_title_view">Current Enrolled Modules: </string>
 </resources>

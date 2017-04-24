@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home Screen layout -->
+<!-- Home Screen button layout -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/timetable_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/timetable_button"/>
+    <Button
+        android:id="@+id/coursework_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/coursework_button"/>
+    <Button
+        android:id="@+id/staff_hours_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/staff_hours_button"/>
+    <Button
+        android:id="@+id/email_client_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/email_client_button"/>
+</LinearLayout>

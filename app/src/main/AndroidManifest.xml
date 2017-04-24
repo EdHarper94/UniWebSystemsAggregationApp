@@ -1,7 +1,9 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="edharper.uniwebsystemsaggregationapp">
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,86 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+    <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-    </application>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".Login.Login">
+        <intent-filter>
+            <action android:name="edharper.uniwebsystemsaggregationapp.Login"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
+    <activity android:name=".HomeScreen">
+        <intent-filter>
+            <action android:name="edharper.uniwebsystemsaggregationapp.HomeScreen"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
+    <activity android:name=".Timetable.TimetableScraper">
+        <intent-filter>
+            <action android:name="edharper.uniwebsystemsaggregationapp.TimetableScraper"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
+    <activity android:name=".Coursework.CourseworkMenu">
+        <intent-filter>
+            <action android:name="edharper.uniwebsystemsaggregationapp.CourseworkMenu"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
+    <activity android:name=".Coursework.CourseworkScraper">
+        <intent-filter>
+            <action android:name="edharper.uniwebsystemsaggregationapp.CourseworkScraper"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
+    <activity android:name=".StaffOfficeHours.StaffHoursScraper">
+        <intent-filter>
+            <action android:name="edharper.uniwebsystemsaggregationapp.StaffHoursScraper"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
+        <activity android:name=".Email.Inbox">
+            <intent-filter>
+                <action android:name="edharper.uniwebsystemsaggregationapp.Inbox"/>
 
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Email.EmailActivity">
+            <intent-filter>
+                <action android:name="edharper.uniwebsystemsaggregationapp.Email.EmailActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Email.SendEmailActivity">
+            <intent-filter>
+                <action android:name="edharper.uniwebsystemsaggregationapp.SendEmailActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="edharper.uniwebsystemsaggregationapp.Email.AttachmentsProvider"
+            android:authorities="edharper.uniwebsystemsaggregationapp"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            />
+        <provider
+            android:name="com.ianhanniballake.localstorage.LocalStorageProvider"
+            android:authorities="edharper.uniwebsystemsaggregationapp.documents"
+            android:enabled="@bool/use_provider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS" >
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+            </intent-filter>
+        </provider>
+</application>
 </manifest>
