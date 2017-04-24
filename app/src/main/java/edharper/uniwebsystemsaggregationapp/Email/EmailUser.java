@@ -6,8 +6,6 @@ package edharper.uniwebsystemsaggregationapp.Email;
 
 public class EmailUser {
 
-    private static final String firstName = "Edward";
-    private static final String lastName = "Harper";
     private static String emailAddress;
     private static String password;
 
@@ -24,11 +22,4 @@ public class EmailUser {
         return password;
     }
 
-    public static String getFirstName(){
-        return firstName;
-    }
-
-    public static String getLastName(){
-        return lastName;
-    }
 }
