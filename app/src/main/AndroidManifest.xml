@@ -18,25 +18,29 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
-    <activity android:name=".Login.Login">
+    <activity android:name=".Login.Login"
+        android:label="@string/login_title">
         <intent-filter>
             <action android:name="edharper.uniwebsystemsaggregationapp.Login"/>
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
     </activity>
-    <activity android:name=".HomeScreen">
+    <activity android:name=".HomeScreen"
+        android:label="@string/home_title">
         <intent-filter>
             <action android:name="edharper.uniwebsystemsaggregationapp.HomeScreen"/>
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
     </activity>
-    <activity android:name=".Timetable.TimetableScraper">
+    <activity android:name=".Timetable.TimetableScraper"
+        android:label="@string/timetable_title">
         <intent-filter>
             <action android:name="edharper.uniwebsystemsaggregationapp.TimetableScraper"/>
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
     </activity>
-    <activity android:name=".Coursework.CourseworkMenu">
+    <activity android:name=".Coursework.CourseworkMenu"
+        android:label="@string/coursework_menu_title">
         <intent-filter>
             <action android:name="edharper.uniwebsystemsaggregationapp.CourseworkMenu"/>
             <category android:name="android.intent.category.DEFAULT"/>
@@ -48,13 +52,15 @@
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
     </activity>
-    <activity android:name=".StaffOfficeHours.StaffHoursScraper">
+    <activity android:name=".StaffOfficeHours.StaffHoursScraper"
+        android:label="@string/staff_hours_title">
         <intent-filter>
             <action android:name="edharper.uniwebsystemsaggregationapp.StaffHoursScraper"/>
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
     </activity>
-        <activity android:name=".Email.Inbox">
+        <activity android:name=".Email.Inbox"
+            android:label="@string/inbox_title">
             <intent-filter>
                 <action android:name="edharper.uniwebsystemsaggregationapp.Inbox"/>
 
@@ -68,7 +74,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Email.SendEmailActivity">
+        <activity android:name=".Email.SendEmailActivity"
+            android:label="@string/send_email_title">
             <intent-filter>
                 <action android:name="edharper.uniwebsystemsaggregationapp.SendEmailActivity"/>
 

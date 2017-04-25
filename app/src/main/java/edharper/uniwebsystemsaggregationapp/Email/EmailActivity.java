@@ -9,6 +9,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.File;
@@ -44,6 +45,10 @@ public class EmailActivity extends Activity {
     private final String IMAPS = "imaps";
     private final String EMAIL = "email";
 
+    private ImageButton backButton, replyButton;
+
+    private Button downloadButton;
+
     // Server settings
     private final ServerSettings imapSettings = new ServerSettings();
     private Properties props = new Properties();
@@ -68,9 +73,9 @@ public class EmailActivity extends Activity {
         Intent intent = getIntent();
         email = (ReceivedEmail) intent.getParcelableExtra(EMAIL);
 
-        Button backButton = (Button)findViewById(R.id.back_button);
-        Button downloadButton = (Button)findViewById(R.id.download_button);
-        Button replyButton = (Button)findViewById(R.id.reply_button);
+        backButton = (ImageButton)findViewById(R.id.back_button);
+        downloadButton = (Button)findViewById(R.id.download_button);
+        replyButton = (ImageButton)findViewById(R.id.reply_button);
 
         // Init views
         TextView fromView = (TextView)findViewById(R.id.from_view);

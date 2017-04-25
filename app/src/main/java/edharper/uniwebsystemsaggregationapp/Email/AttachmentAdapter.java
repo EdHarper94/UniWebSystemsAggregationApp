@@ -16,6 +16,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import edharper.uniwebsystemsaggregationapp.R;
+
 /**
  * @file AttachmentsAdapter.java
  * @author Ed Harper
@@ -33,6 +35,9 @@ public class AttachmentAdapter extends BaseAdapter {
     // Error final strings
     private final String URI_ERROR_P1 = "You currently don't have an application for the file type: ";
     private final String URI_ERROR_P2 = ". Please download one to open it.";
+
+    private final int ATT_MIN_HEIGHT = 200; // Pixels
+
 
     private Context context;
     private List<File> attachments = new ArrayList<>();
@@ -90,6 +95,10 @@ public class AttachmentAdapter extends BaseAdapter {
         attachmentButton.setId(position);
         attachmentButton.setText(attachments.get(position).getName());
 
+        // Style Attachment
+        attachmentButton.setBackgroundResource(R.drawable.attachment_file_icon);
+        attachmentButton.setMinHeight(200);
+        attachmentButton.setPadding(2,2,2,2);
         attachmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

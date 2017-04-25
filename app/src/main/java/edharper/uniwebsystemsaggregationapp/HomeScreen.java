@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by eghar on 17/03/2017.
+ * @file HomeScreen.java
+ * @author Ed Harper
+ * @date 17/03/2017
+ *
+ * Home screen activity. Landing page for all other pages.
  */
 
 public class HomeScreen extends Activity {

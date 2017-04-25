@@ -1,40 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Send Email Activity -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!-- Button Bar -->
     <RelativeLayout
         android:id="@+id/button_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp">
         <Button
             android:id="@+id/discard_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/discard_button"/>
-        <Button
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/delete_icon"
+            android:text="@string/back_button"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/dangerRed"/>
+        <ImageButton
             android:id="@+id/add_attachment_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/send_button"
             android:layout_toStartOf="@+id/send_button"
-            android:text="@string/add_attachment_button"/>
+            android:text="@string/add_attachment_button"
+            android:src="@drawable/attachment_icon"
+            android:background="@drawable/rounded_button"/>
         <Button
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/send_button"
-            android:layout_alignParentRight="true"/>
+            android:textColor="@color/textWhite"
+            android:drawableRight="@drawable/send_icon"
+            android:background="@drawable/rounded_button"
+            />
     </RelativeLayout>
+    <!-- Email Content Container -->
     <RelativeLayout
         android:id="@+id/content_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/button_container"
         android:layout_margin="10dp">
+        <!-- Recipient Bar -->
         <LinearLayout
             android:id="@+id/to_linear_container"
             android:layout_width="match_parent"
@@ -55,19 +78,28 @@
                 android:layout_weight="6"/>
             <Button
                 android:id="@+id/add_recipient_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="@string/add_recipients_button"
-                android:textSize="10sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/textWhite"
+                android:background="@drawable/rounded_button"/>
 
             <Button
                 android:id="@+id/cc_bcc_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:background="@drawable/rounded_button"
                 android:text="@string/cc_bcc_button"
-                android:textSize="10sp"
-                android:layout_gravity="center"/>
+                android:textColor="@color/textWhite"
+                android:textSize="10sp" />
         </LinearLayout>
+        <!-- CC Bar -->
         <LinearLayout
             android:id="@+id/cc_linear_container"
             android:layout_width="match_parent"
@@ -89,11 +121,17 @@
                 android:layout_weight="6"/>
             <Button
                 android:id="@+id/add_cc_recipient_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="@string/add_recipients_button"
-                android:textSize="10sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/textWhite"
+                android:background="@drawable/rounded_button"/>
         </LinearLayout>
+        <!-- BCC Bar -->
         <LinearLayout
             android:id="@+id/bcc_container"
             android:layout_width="match_parent"
@@ -115,11 +153,17 @@
                 android:layout_weight="6"/>
             <Button
                 android:id="@+id/add_bcc_recipient_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="@string/add_recipients_button"
-                android:textSize="10sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/textWhite"
+                android:background="@drawable/rounded_button"/>
         </LinearLayout>
+        <!-- Subject Bar -->
         <LinearLayout
             android:id="@+id/subject_linear_container"
             android:layout_width="match_parent"
@@ -139,6 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="6"/>
         </LinearLayout>
+        <!-- Email content -->
         <RelativeLayout
             android:id="@+id/content_linear_container"
             android:layout_width="match_parent"
@@ -156,6 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/message_edit_text">
+                <!-- Attachment grid view -->
                 <GridView
                     android:id="@+id/attachment_grid"
                     android:layout_width="265dp"
@@ -166,6 +212,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true" />
+                <!-- Reply content container -->
                 <WebView
                     android:id="@+id/reply_content"
                     android:layout_width="match_parent"
@@ -174,12 +221,18 @@
                 <Button
                     android:id="@+id/delete_attachment_button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:text="@string/delete_attachment_button"
+                    android:layout_height="40dp"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/attachment_grid"
-                    android:layout_toEndOf="@+id/attachment_grid" />
+                    android:layout_toEndOf="@+id/attachment_grid"
+                    android:visibility="gone"
+                    android:drawableRight="@drawable/delete_icon"
+                    android:text="->"
+                    android:textSize="20dp"
+                    android:textColor="@color/textWhite"
+                    android:drawableLeft="@drawable/attachment_icon"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/dangerRed"/>
             </RelativeLayout>
         </RelativeLayout>
 

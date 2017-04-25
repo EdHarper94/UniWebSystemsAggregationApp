@@ -8,6 +8,7 @@
 
     <!-- HOME SCREEN -->
     <!-- Buttons -->
+    <string name="home_title">Home</string>
     <string name="timetable_button">Timetable</string>
     <string name="coursework_button">Courseworks</string>
     <string name="staff_hours_button">Staff Office Hours</string>
@@ -22,16 +23,19 @@
 
     <!-- TIMETABLE SCRAPER -->
     <!-- Buttons -->
+    <string name="timetable_title">Timetable</string>
     <string name="next_week_button">Next Week</string>
     <string name="previous_week_button">Prev. Week</string>
 
     <!-- COURSEWORK MENU-->
     <!-- Buttons -->
+    <string name="coursework_menu_title">Coursework Menu</string>
     <string name="current_cw_button">Current Courseworks</string>
     <string name="received_cw_button">Received Courseworks</string>
     <string name="future_cw_button">Future Courseworks</string>
 
     <!-- HOURS SCRAPER -->
+    <string name="staff_hours_title">Staff Office Hours</string>
     <string name="hours_title_view">Staff Office Hours List:</string>
     <string name="lecturer_text_view_header">Lecturer</string>
     <string name="hours_text_view_header">Hours</string>
@@ -39,6 +43,7 @@
 
 <!-- EMAIL STRINGS -->
     <!-- INBOX BUTTONS !-->
+    <string name="inbox_title">Inbox</string>
     <string name="create_email_button">+ New</string>
     <string name="refresh_button">Refresh</string>
     <string name="edit_button">Edit</string>
@@ -51,7 +56,7 @@
     <string name="download_button">Download Attachments</string>
 
     <!-- SEND VIEW !-->
-    <string name="discard_button">Discard</string>
+    <string name="send_email_title">Send Email</string>
     <string name="add_attachment_button">+ Insert</string>
     <string name="send_button">Send</string>
 
@@ -62,8 +67,8 @@
     <string name="bcc_edit_text_label">Bcc: </string>
     <string name="subject_edit_text_label">Subject:</string>
     <string name="message_hint">Please enter your message...</string>
-    <string name="delete_attachment_button">Delete</string>
+    <string name="delete_attachment_button">Att\'</string>
 
 <!-- BLACKBOARD MODULE SCRAPER STRINGS -->
-    <string name="module_title_view">Current Enrolled Modules: </string>
+    <string name="module_title">Current Enrolled Modules: </string>
 </resources>

@@ -1,8 +1,10 @@
 package edharper.uniwebsystemsaggregationapp.Email;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -65,6 +67,9 @@ public class Inbox extends Activity {
     private final String DELETED_ITEMS = "Deleted Items";
     private final ServerSettings IMAP_SETTINGS = new ServerSettings();
 
+    // Alert dialog strings
+    private final String ALERT_TITLE = "Delete Email/s?";
+    private final String ALERT_MESSAGE = "Are you sure you want to move these email/s to 'Deleted items folder' ? \n (CANNOT undo this action)";
 
     // Create Buttons
     private ImageButton refreshButton, editButton, markButton, deleteButton, checkButton, createButton,
@@ -181,7 +186,8 @@ public class Inbox extends Activity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new ChangeEmailStatus(ia.getEmailUIDs(), DELETE).execute();
+                confirmDeletion();
+
             }
         });
 
@@ -573,6 +579,31 @@ public class Inbox extends Activity {
         }
     }
 
+
+    /**
+     * Confirm email deletion and perform delete.
+     */
+    public void confirmDeletion(){
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setTitle(ALERT_TITLE);
+        b.setMessage(ALERT_MESSAGE);
+
+        b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int i){
+                new ChangeEmailStatus(ia.getEmailUIDs(), DELETE).execute();
+            }
+        });
+        b.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                dialog.dismiss();
+                onResume();
+            }
+        });
+        AlertDialog alert = b.create();
+        alert.show();
+    }
+
     /**
      * Removes email from emails array
      * @param UID the uid of the email to delete
@@ -584,6 +615,7 @@ public class Inbox extends Activity {
             }
         }
     }
+
 
     public void goBack(){
         finish();

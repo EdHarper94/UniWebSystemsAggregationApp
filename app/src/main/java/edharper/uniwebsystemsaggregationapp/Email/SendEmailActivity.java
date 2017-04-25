@@ -2,7 +2,9 @@ package edharper.uniwebsystemsaggregationapp.Email;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -17,6 +19,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -47,14 +50,20 @@ public class SendEmailActivity extends Activity {
     private final String RECIPIENT_ERROR = "Please add a recipient.";
     private final String SUCCESS = "Y";
 
+    // Alert dialog strings
+    private final String ALERT_TITLE = "Discard Email?";
+    private final String ALERT_MESSAGE = "Are you sure you want to discard this email? \n (Email will be lost)";
+
     private Context context = SendEmailActivity.this;
 
     // Edit texts
     private EditText toEditText, subjectEditText, messageEditText ,ccEditText, bccEditText;
 
     // Buttons
-    private Button discardButton, attachmentButton, sendButton, addRecipientButton,
+    private Button discardButton, sendButton, addRecipientButton,
                     ccBccButton, addCcButton, addBccButton, deleteAttButton;
+
+    private ImageButton attachmentButton;
 
     private LinearLayout ccContainer;
     private LinearLayout bccContainer;
@@ -107,7 +116,7 @@ public class SendEmailActivity extends Activity {
         ccBccButton = (Button)findViewById(R.id.cc_bcc_button);
         addCcButton = (Button)findViewById(R.id.add_cc_recipient_button);
         addBccButton = (Button)findViewById(R.id.add_bcc_recipient_button);
-        attachmentButton = (Button)findViewById(R.id.add_attachment_button);
+        attachmentButton = (ImageButton) findViewById(R.id.add_attachment_button);
         deleteAttButton = (Button)findViewById(R.id.delete_attachment_button);
         sendButton = (Button)findViewById(R.id.send_button);
 
@@ -443,10 +452,27 @@ public class SendEmailActivity extends Activity {
     }
 
     /**
-     * Discard the email and destroy activity
+     * Confirm and discard email
      */
     public void discardEmail(){
-        finish();
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setTitle(ALERT_TITLE);
+        b.setMessage(ALERT_MESSAGE);
+
+        b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int i){
+                finish();
+            }
+        });
+        b.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                dialog.dismiss();
+                onResume();
+            }
+        });
+        AlertDialog alert = b.create();
+        alert.show();
     }
 
     /**

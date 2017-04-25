@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
+    <!-- Home Screen icon !-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="244dp"
@@ -16,6 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_weight="0.16"
         android:src="@drawable/homescreen_icon" />
+    <!-- Timetable bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +42,7 @@
             android:background="@drawable/rounded_button"
             android:text="@string/timetable_button" />
     </LinearLayout>
+    <!-- Coursework bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,6 +67,7 @@
             android:background="@drawable/rounded_button"
             android:text="@string/coursework_button" />
     </LinearLayout>
+    <!-- Staff office hours bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,6 +92,7 @@
             android:background="@drawable/rounded_button"
             android:text="@string/staff_hours_button" />
     </LinearLayout>
+    <!-- Email bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

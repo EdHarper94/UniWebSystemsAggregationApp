@@ -110,7 +110,7 @@ public class Login extends Activity{
                 progressBar.setVisibility(View.GONE);
                 if (checkLoginsWereSucessful()) {
                     // Notify user
-                    Toast.makeText(context, "Login Successful...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Login Successful.", Toast.LENGTH_SHORT).show();
 
                     // Set email credentials
                     setEmailCredentials();
