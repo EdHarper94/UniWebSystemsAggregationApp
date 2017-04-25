@@ -4,25 +4,112 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:id="@+id/timetable_button"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="244dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.16"
+        android:src="@drawable/homescreen_icon" />
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/timetable_button"/>
-    <Button
-        android:id="@+id/coursework_button"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/timetable_icon"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/timetable_icon" />
+        <Button
+            android:id="@+id/timetable_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/timetable_button" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/coursework_button"/>
-    <Button
-        android:id="@+id/staff_hours_button"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/coursework_icon"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/coursework_icon" />
+        <Button
+            android:id="@+id/coursework_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/coursework_button" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/staff_hours_button"/>
-    <Button
-        android:id="@+id/email_client_button"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/staff_hours_icon"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/staff_hours_icon" />
+        <Button
+            android:id="@+id/staff_hours_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/staff_hours_button" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/email_client_button"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/email_icon"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/email_icon" />
+        <Button
+            android:id="@+id/email_client_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/email_client_button"
+            android:background="@drawable/rounded_button"/>
+        </LinearLayout>
 </LinearLayout>

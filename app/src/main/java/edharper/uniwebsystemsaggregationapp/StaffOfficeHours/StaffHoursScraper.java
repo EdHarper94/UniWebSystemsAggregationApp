@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -54,7 +54,7 @@ public class StaffHoursScraper extends Activity {
     private Context context = StaffHoursScraper.this;
 
     private ListView listView;
-    private Button backButton;
+    private ImageButton backButton;
     private ProgressDialog pd;
     private StaffHoursAdapter staffHoursAdapter;
 
@@ -71,7 +71,7 @@ public class StaffHoursScraper extends Activity {
         setContentView(R.layout.hours_scraper);
 
         listView = (ListView)findViewById(R.id.staff_hours_list);
-        backButton = (Button)findViewById(R.id.back_button);
+        backButton = (ImageButton)findViewById(R.id.home_button);
 
         // Execute
         new getStaffOfficeHours().execute();

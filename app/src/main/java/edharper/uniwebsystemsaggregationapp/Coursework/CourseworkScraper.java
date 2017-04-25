@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
@@ -69,6 +70,7 @@ public class CourseworkScraper extends Activity {
     private ArrayList<FutureCoursework> fCourseworks = new ArrayList<>();
 
     private TableLayout tl;
+    private ImageButton homeButton;
 
     private Context context = CourseworkScraper.this;
     private CookieStorage cookieStorage = new CookieStorage();
@@ -101,8 +103,8 @@ public class CourseworkScraper extends Activity {
         tl = (TableLayout)findViewById(R.id.coursework_table);
         new scrapeCourseworks().execute();
 
-        Button backButton = (Button)findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
+        homeButton = (ImageButton)findViewById(R.id.home_button);
+        homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goBack();

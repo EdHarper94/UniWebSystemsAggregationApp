@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import edharper.uniwebsystemsaggregationapp.R;
 
@@ -17,6 +18,9 @@ import edharper.uniwebsystemsaggregationapp.R;
  */
 
 public class CourseworkMenu extends Activity implements View.OnClickListener {
+
+    private ImageButton homeButton;
+    private Button cCWButton, rCWButton, fCWButton;
 
     private Intent intent;
 
@@ -32,13 +36,13 @@ public class CourseworkMenu extends Activity implements View.OnClickListener {
         setContentView(R.layout.coursework_menu);
 
         // Init buttons
-        Button homeButton = (Button)findViewById(R.id.coursework_menu_home_button);
+        homeButton = (ImageButton)findViewById(R.id.home_button);
         homeButton.setOnClickListener(this);
-        Button cCWButton = (Button)findViewById(R.id.current_cw_button);
+        cCWButton = (Button)findViewById(R.id.current_cw_button);
         cCWButton.setOnClickListener(this);
-        Button rCWButton = (Button)findViewById(R.id.received_cw_button);
+        rCWButton = (Button)findViewById(R.id.received_cw_button);
         rCWButton.setOnClickListener(this);
-        Button fCWButton = (Button)findViewById(R.id.future_cw_button);
+        fCWButton = (Button)findViewById(R.id.future_cw_button);
         fCWButton.setOnClickListener(this);
 
     }
@@ -52,8 +56,8 @@ public class CourseworkMenu extends Activity implements View.OnClickListener {
 
         // Switch on clicked button
         switch (view.getId()){
-            case R.id.coursework_menu_home_button:
-                finish();
+            case R.id.home_button:
+                goBack();
                 break;
             case R.id.current_cw_button:
                 intent = new Intent("edharper.uniwebsystemsaggregationapp.CourseworkScraper");
@@ -73,5 +77,9 @@ public class CourseworkMenu extends Activity implements View.OnClickListener {
             default:
                 break;
         }
+    }
+
+    public void goBack(){
+        finish();
     }
 }

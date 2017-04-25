@@ -5,11 +5,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jsoup.Jsoup;
@@ -40,19 +40,25 @@ import edharper.uniwebsystemsaggregationapp.R;
 public class TimetableScraper extends Activity {
 
     // Final urls
-    final String TT_URL = "https://science.swansea.ac.uk/intranet/attendance/timetable";
-    final String BASE_URL = "https://science.swansea.ac.uk/intranet/";
-    final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
+    private final String TT_URL = "https://science.swansea.ac.uk/intranet/attendance/timetable";
+    private final String BASE_URL = "https://science.swansea.ac.uk/intranet/";
+    private final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
 
     // Final html parsing selectors
-    final String TIMETABLE = "timetable";
-    final String DAY = "day";
-    final String DIV_SLOT = "div.slot";
-    final String STRONG = "strong";
-    final String SPAN = "span";
-    final String DAY_ATTRIBUTE = "data-day";
-    final String HOUR_ATTRIBUTE = "data-hour";
-    final String DIV_LECTURE = "div.lectureinfo.duration";
+    private final String TIMETABLE = "timetable";
+    private final String DAY = "day";
+    private final String DIV_SLOT = "div.slot";
+    private final String STRONG = "strong";
+    private final String SPAN = "span";
+    private final String DAY_ATTRIBUTE = "data-day";
+    private final String HOUR_ATTRIBUTE = "data-hour";
+    private final String DIV_LECTURE = "div.lectureinfo.duration";
+
+    private final String WEEK_HEADING = "Week beginning ";
+
+    private ImageButton homeButton, nextButton, prevButton;
+
+    private TextView heading;
 
     // Cookie map
     private Map<String, String> cookies;
@@ -83,9 +89,11 @@ public class TimetableScraper extends Activity {
         // Excutes table scraping
         new scrapeTimetable().execute("");
 
-        Button homeButton = (Button)findViewById(R.id.home_button);
-        Button nextButton = (Button)findViewById(R.id.next_week_button);
-        Button prevButton = (Button)findViewById(R.id.previous_week_button);
+        homeButton = (ImageButton)findViewById(R.id.home_button);
+        nextButton = (ImageButton)findViewById(R.id.next_week_button);
+        prevButton = (ImageButton)findViewById(R.id.previous_week_button);
+
+        heading = (TextView)findViewById(R.id.week_heading);
 
         homeButton.setOnClickListener(new OnClickListener(){
             @Override
@@ -203,10 +211,9 @@ public class TimetableScraper extends Activity {
 
         // Outputting Scrapped data to UI
         protected void onPostExecute(Void result){
-            // ** DEBUG CODE ** //
-            for(Lecture l : lectures){
-                Log.d("Lectures: ", l.toString());
-            }
+
+            heading.setText(WEEK_HEADING + days.get(0));
+
             //Initliase timetable.
             TimetableGenerator ttg = new TimetableGenerator(context, tl, lectures,days);
             //Create table.

@@ -1,7 +1,9 @@
 package edharper.uniwebsystemsaggregationapp.Email;
 
 /**
- * Created by eghar on 13/04/2017.
+ * @file EmailUser.java
+ * @author Ed Harper
+ * @date 30/03/2017
  */
 
 public class EmailUser {

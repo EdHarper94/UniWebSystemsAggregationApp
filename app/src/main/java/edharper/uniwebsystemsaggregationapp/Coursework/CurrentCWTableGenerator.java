@@ -9,6 +9,8 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
+import edharper.uniwebsystemsaggregationapp.R;
+
 import static android.view.Gravity.CENTER;
 
 /**
@@ -64,6 +66,9 @@ public class CurrentCWTableGenerator {
             header.setText(headings.get(j));
             header.setGravity(Gravity.CENTER);;
             header.setGravity(CENTER);
+
+            row.setPadding(0,0,10,0);
+            row.setBackgroundResource(R.drawable.horizontal_divider);
             row.addView(header);
 
         }
@@ -113,6 +118,9 @@ public class CurrentCWTableGenerator {
             row.addView(title);
             row.addView(dDate);
             row.addView(fDate);
+
+            // Add styling
+            row.setBackgroundResource(R.drawable.table_row_border);
 
             // Add rows to table
             tl.addView(row);

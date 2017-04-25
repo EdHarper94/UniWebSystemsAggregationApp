@@ -25,6 +25,8 @@ import edharper.uniwebsystemsaggregationapp.R;
 
 public class TimetableGenerator {
 
+    private final String HOUR_FORMAT = ":00";
+
     private Context context;
     private TableLayout tl;
 
@@ -71,7 +73,12 @@ public class TimetableGenerator {
             header = new TextView(context);
             header.setText(days.get(j));
             header.setGravity(Gravity.CENTER);
+
+            // Add styling
+            row.setPadding(0,0,10,0);
+            row.setBackgroundResource(R.drawable.horizontal_divider);
             row.addView(header);
+
         }
         tl.addView(row);
 
@@ -96,8 +103,10 @@ public class TimetableGenerator {
 
                 //Add room info
                 TextView room = (TextView) lv.findViewById(R.id.room);
-                Log.d("ROOMS: ", lectures.get(i).getRoom());
                 room.setText(lectures.get(i).getRoom());
+
+                // Add styling
+                row.setBackgroundResource(R.drawable.table_row_border);
 
                 row.addView(lv);
                 tl.addView(row);
@@ -110,7 +119,7 @@ public class TimetableGenerator {
 
                 // Add row header.
                 TextView hour = new TextView(context);
-                hour.setText(Integer.toString(lectures.get(i).getHour()));
+                hour.setText(Integer.toString(lectures.get(i).getHour()) + HOUR_FORMAT);
                 hour.setHeight(200);
 
                 //Inflate view. See lecture_view.xml
@@ -126,7 +135,6 @@ public class TimetableGenerator {
 
                 //Add room info
                 TextView room = (TextView) lv.findViewById(R.id.room);
-                Log.d("ROOMS: ", lectures.get(i).getRoom());
                 room.setText(lectures.get(i).getRoom());
 
                 //Add row

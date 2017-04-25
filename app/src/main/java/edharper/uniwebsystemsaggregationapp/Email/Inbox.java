@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -66,7 +67,7 @@ public class Inbox extends Activity {
 
 
     // Create Buttons
-    private Button refreshButton, editButton, markButton, deleteButton, checkButton, createButton,
+    private ImageButton refreshButton, editButton, markButton, deleteButton, checkButton, createButton,
                 homeButton;
 
     private final String CONNECTION_ERROR = "Cannot connect to server, please try again later.";
@@ -104,13 +105,13 @@ public class Inbox extends Activity {
         setContentView(R.layout.inbox);
 
         lv = (ListView) findViewById(R.id.email_list);
-        refreshButton = (Button) findViewById(R.id.refresh_button);
-        editButton = (Button) findViewById(R.id.edit_button);
-        markButton = (Button) findViewById(R.id.mark_button);
-        deleteButton = (Button) findViewById(R.id.delete_button);
-        checkButton = (Button)findViewById(R.id.check_all_button);
-        createButton = (Button)findViewById(R.id.create_email_button);
-        homeButton = (Button)findViewById(R.id.home_button);
+        refreshButton = (ImageButton) findViewById(R.id.refresh_button);
+        editButton = (ImageButton) findViewById(R.id.edit_button);
+        markButton = (ImageButton) findViewById(R.id.mark_button);
+        deleteButton = (ImageButton) findViewById(R.id.delete_button);
+        checkButton = (ImageButton)findViewById(R.id.check_all_button);
+        createButton = (ImageButton)findViewById(R.id.create_email_button);
+        homeButton = (ImageButton)findViewById(R.id.home_button);
 
         new getEmails().execute(refresh);
 
@@ -228,7 +229,7 @@ public class Inbox extends Activity {
     /**
      * Shows and hides checkboxes, mark & delete buttons
      */
-    public void showEditButtons(Button markButton, Button deleteButton, Button checkButton){
+    public void showEditButtons(ImageButton markButton, ImageButton deleteButton, ImageButton checkButton){
         if(editButtonsShowing){
             editButtonsShowing = false;
             checkButton.setVisibility(View.GONE);
