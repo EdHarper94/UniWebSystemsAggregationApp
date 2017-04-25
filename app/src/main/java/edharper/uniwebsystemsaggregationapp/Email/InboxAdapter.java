@@ -10,7 +10,9 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import edharper.uniwebsystemsaggregationapp.R;
@@ -129,6 +131,9 @@ public class InboxAdapter extends BaseAdapter{
         }
     }
 
+    /**
+     * Toggles visibility of boolean visibility of checkboxes
+     */
     public void setShowCheckboxes(){
         if(showCheckboxes){
             showCheckboxes = false;
@@ -137,7 +142,10 @@ public class InboxAdapter extends BaseAdapter{
         }
     }
 
-    // Toggles all checkboxes in adapter
+    /**
+     * Toggles all checkboxes in adapter
+     * @param checked boolean value checked
+     */
     public void toggleAllCheckboxes(Boolean checked){
         if(checked) {
             for (int i = 0; i < emails.size(); i++) {
@@ -151,6 +159,19 @@ public class InboxAdapter extends BaseAdapter{
             }
         }
 
+    }
+
+    /**
+     * Formats date to string
+     * @param date the date to be formatted
+     * @return String formatted date
+     */
+    private String formatDate(Date date) {
+
+        // Format date
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        String formattedDate = df.format(date);
+        return formattedDate;
     }
 
     /**
@@ -184,7 +205,8 @@ public class InboxAdapter extends BaseAdapter{
         }
         // Set data
         viewHolder.fromText.setText(emails.get(position).getFrom().toString());
-        viewHolder.dateText.setText(emails.get(position).getReceivedDate().toString());
+        String formattedDate = formatDate(emails.get(position).getReceivedDate());
+        viewHolder.dateText.setText(formattedDate);
         viewHolder.subjectText.setText(emails.get(position).getSubject());
         viewHolder.unread = (emails.get(position).getUnread());
         viewHolder.emailUID = (emails.get(position).getUID());

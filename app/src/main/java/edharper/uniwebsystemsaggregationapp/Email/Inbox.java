@@ -18,8 +18,11 @@ import android.widget.Toast;
 import com.sun.mail.util.MailConnectException;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Properties;
 
@@ -349,9 +352,9 @@ public class Inbox extends Activity {
         return false;
     }
 
-    /**
-     * Gets emails from server via background thread and then passes them to the UI thread
-     */
+        /**
+         * Gets emails from server via background thread and then passes them to the UI thread
+         */
     public class getEmails extends AsyncTask<Boolean, Void, Void> {
 
         /**
@@ -382,7 +385,7 @@ public class Inbox extends Activity {
 
                 // Get folder
                 inbox = store.getFolder(INBOX);
-                UIDFolder uf = (UIDFolder)inbox;
+                UIDFolder uf = (UIDFolder) inbox;
                 inbox.open(Folder.READ_ONLY);
 
                 int totalMessages = inbox.getMessageCount();
@@ -403,12 +406,12 @@ public class Inbox extends Activity {
                     String text = getText(message);
                     Boolean attachment = hasAttachments(message);
                     Boolean unread = true;
-                    if(message.isSet(Flags.Flag.SEEN)){
+                    if (message.isSet(Flags.Flag.SEEN)) {
                         unread = false;
                     }
 
                     // Create email
-                    ReceivedEmail email = new ReceivedEmail(UID , subject, text, attachment, from, date, unread);
+                    ReceivedEmail email = new ReceivedEmail(UID, subject, text, attachment, from, date, unread);
                     // Store to array
                     emails.add(email);
                 }
@@ -418,9 +421,9 @@ public class Inbox extends Activity {
                 // Finally increment deductors
                 incrementDeductors();
 
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
-            }catch (MessagingException me) {
+            } catch (MessagingException me) {
                 me.printStackTrace();
             }
 
@@ -430,13 +433,13 @@ public class Inbox extends Activity {
         @Override
         protected void onPostExecute(Void result) {
             // Check emails have been downloaded
-            if(emails != null){
+            if (emails != null) {
                 // Check array adapter has been initialised
-                if(ia == null) {
+                if (ia == null) {
                     // If there is no Adapter create one and pass emails
                     ia = new InboxAdapter(context, emails);
                     lv.setAdapter(ia);
-                }else{
+                } else {
                     // Clear checkbox arrays
                     ia.clearEmailUIDs();
                     ia.clearSelectedPos();
@@ -446,7 +449,7 @@ public class Inbox extends Activity {
                 }
             }
             // Dismiss progress dialog
-            if(pd.isShowing()){
+            if (pd.isShowing()) {
                 pd.dismiss();
             }
         }
