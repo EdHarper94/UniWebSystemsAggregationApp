@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -55,6 +56,7 @@ public class TimetableScraper extends Activity {
     private final String DIV_LECTURE = "div.lectureinfo.duration";
 
     private final String WEEK_HEADING = "Week beginning ";
+    private final String CONNECTION_ERROR = "Cannot retrieve timetable data, please try again later.";
 
     private ImageButton homeButton, nextButton, prevButton;
 
@@ -170,6 +172,7 @@ public class TimetableScraper extends Activity {
      * Scrapes time table from science intranet and scrapes html for data formatting
      */
     private class scrapeTimetable extends AsyncTask<String, Void, Void> {
+        private Exception exception;
 
         @Override
         protected void onPreExecute(){
@@ -202,8 +205,8 @@ public class TimetableScraper extends Activity {
                 // Parse html
                 scrapeHtml(htmlDoc);
 
-            }catch(IOException e){
-                e.printStackTrace();
+            }catch(Exception e){
+                this.exception = e;
             }
             return null;
         }
@@ -211,13 +214,28 @@ public class TimetableScraper extends Activity {
 
         // Outputting Scrapped data to UI
         protected void onPostExecute(Void result){
+            Toast toast = Toast.makeText(context, CONNECTION_ERROR, Toast.LENGTH_LONG);
 
+            // Set title heading
             heading.setText(WEEK_HEADING + days.get(0));
 
-            //Initliase timetable.
-            TimetableGenerator ttg = new TimetableGenerator(context, tl, lectures,days);
-            //Create table.
-            ttg.generateTable();
+            // Check for connection error
+            if(exception !=null){
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                toast.show();
+            }
+
+            // Check for timetable error
+            if(!lectures.isEmpty() && !days.isEmpty() ) {
+                //Initliase timetable.
+                TimetableGenerator ttg = new TimetableGenerator(context, tl, lectures, days);
+                //Create table.
+                ttg.generateTable();
+            }else{
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                toast.show();
+            }
+
 
             //If progress is still showing dismiss.
             if(pd.isShowing()){
