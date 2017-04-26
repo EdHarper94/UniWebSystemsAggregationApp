@@ -92,11 +92,11 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@+id/content_view"
-            android:visibility="visible"
-            android:numColumns="4"
-            android:gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_weight="0"/>
+            android:layout_weight="0"
+            android:visibility="visible"
+            android:numColumns="4"
+            android:gravity="center" />
     </LinearLayout>
 </RelativeLayout>

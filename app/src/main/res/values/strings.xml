@@ -12,6 +12,7 @@
     <string name="timetable_button">Timetable</string>
     <string name="coursework_button">Courseworks</string>
     <string name="staff_hours_button">Staff Office Hours</string>
+    <string name="module_button">Modules</string>
     <string name="email_client_button">Email</string>
 
 <!-- SCIENCE INTRANET SCRAPER STRINGS -->

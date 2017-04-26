@@ -19,7 +19,7 @@ public class CookieStorage {
 
     // Map <Host, < Key, Value> >
     private static Map<URI, Map<String, String>> hostCookieMap = new HashMap<>();
-    Map<String, String> cookies;
+    private Map<String, String> cookies;
 
     public CookieStorage(){
     }

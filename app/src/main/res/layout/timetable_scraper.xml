@@ -30,31 +30,30 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/next_week_button"
-        android:text="@string/previous_week_button"
         android:layout_toLeftOf="@+id/next_week_button"
+        android:layout_margin="10dp"
+        android:text="@string/previous_week_button"
         android:src="@drawable/back_icon"
-        android:background="@drawable/rounded_button"
-        android:layout_margin="10dp"/>
+        android:background="@drawable/rounded_button" />
     <ImageButton
         android:id="@+id/next_week_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:text="@string/next_week_button"
         android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:text="@string/next_week_button"
         android:src="@drawable/next_week_icon"
-        android:background="@drawable/rounded_button"
-        android:layout_margin="10dp"/>
+        android:background="@drawable/rounded_button" />
     <!-- Time table view -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        android:layout_weight="1"
-        android:padding="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:padding="10dp"
         android:layout_below="@+id/home_button">
         <HorizontalScrollView
             android:id="@+id/hScroll"

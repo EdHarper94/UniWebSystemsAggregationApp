@@ -82,6 +82,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".Modules.ModuleScraper">
+            <intent-filter>
+                <action android:name="edharper.uniwebsystemsaggregationapp.ModulesScraper"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <provider
             android:name="edharper.uniwebsystemsaggregationapp.Email.AttachmentsProvider"
             android:authorities="edharper.uniwebsystemsaggregationapp"

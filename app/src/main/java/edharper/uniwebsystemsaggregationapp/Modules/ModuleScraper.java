@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,6 +49,8 @@ public class ModuleScraper extends Activity{
     private final String LINK_SELECTOR = "a";
     private final String HREF_SELECTOR = "href";
 
+    private ImageButton homeButton;
+
     private Context context = ModuleScraper.this;
     private ProgressDialog pd;
 
@@ -65,6 +69,15 @@ public class ModuleScraper extends Activity{
         setContentView(R.layout.module_scraper);
 
         moduleView = (ListView)findViewById(R.id.module_list_view);
+
+        homeButton = (ImageButton)findViewById(R.id.home_button);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goBack();
+            }
+        });
     }
 
     public void onResume() {
@@ -161,5 +174,8 @@ public class ModuleScraper extends Activity{
         }
     }
 
+    public void goBack(){
+        finish();
+    }
 
 }

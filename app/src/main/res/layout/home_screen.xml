@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="0.16"
         android:src="@drawable/homescreen_icon" />
     <!-- Timetable bar -->
@@ -24,7 +24,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
         <ImageView
             android:id="@+id/timetable_icon"
             android:layout_width="60dp"
@@ -49,7 +49,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
         <ImageView
             android:id="@+id/coursework_icon"
             android:layout_width="60dp"
@@ -74,7 +74,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
         <ImageView
             android:id="@+id/staff_hours_icon"
             android:layout_width="60dp"
@@ -92,6 +92,31 @@
             android:background="@drawable/rounded_button"
             android:text="@string/staff_hours_button" />
     </LinearLayout>
+    <!-- Modules Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp">
+        <ImageView
+            android:id="@+id/module_icon"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/modules_icon" />
+        <Button
+            android:id="@+id/module_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/module_button"
+            android:background="@drawable/rounded_button"/>
+    </LinearLayout>
     <!-- Email bar -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,7 +124,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
         <ImageView
             android:id="@+id/email_icon"
             android:layout_width="60dp"
