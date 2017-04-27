@@ -216,9 +216,6 @@ public class TimetableScraper extends Activity {
         protected void onPostExecute(Void result){
             Toast toast = Toast.makeText(context, CONNECTION_ERROR, Toast.LENGTH_LONG);
 
-            // Set title heading
-            heading.setText(WEEK_HEADING + days.get(0));
-
             // Check for connection error
             if(exception !=null){
                 toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
@@ -227,6 +224,9 @@ public class TimetableScraper extends Activity {
 
             // Check for timetable error
             if(!lectures.isEmpty() && !days.isEmpty() ) {
+                // Set title heading
+                heading.setText(WEEK_HEADING + days.get(0));
+
                 //Initliase timetable.
                 TimetableGenerator ttg = new TimetableGenerator(context, tl, lectures, days);
                 //Create table.

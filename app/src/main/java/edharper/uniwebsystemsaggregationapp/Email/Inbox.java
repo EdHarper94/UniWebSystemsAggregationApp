@@ -286,12 +286,7 @@ public class Inbox extends Activity {
 
     /**
      * Gets text body from multipart message
-     * Source: http://www.oracle.com/technetwork/java/javamail/faq/index.html#mainbody
-     * Return the primary text content of the message.
-     */
-    /**
-     * Gets text body from multipart message
-     * @see <http://www.oracle.com/technetwork/java/javamail/faq/index.html#mainbody></http://www.oracle.com/technetwork/java/javamail/faq/index.html#mainbody>
+     * @see <http://www.oracle.com/technetwork/java/javamail/faq/index.html#mainbody>
      * @param p the passed part
      * @return the primary text content of the message
      * @throws MessagingException

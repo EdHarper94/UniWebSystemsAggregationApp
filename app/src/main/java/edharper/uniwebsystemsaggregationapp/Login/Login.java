@@ -30,6 +30,11 @@ public class Login extends Activity{
     private final String LOGIN_FAIL = "LOGIN_FAIL";
     private final String SUCCESS = "SUCCESS";
 
+    private final String CONNECTION_FAIL_MESSAGE = "Currently unable to connect to server. Please try again later.";
+    private final String LOGIN_FAIL_MESSAGE = "Incorrect username/password, please try again.";
+    private final String LOGIN_SUCCESS_MESSAGE = "Login Successful";
+
+
     private final Context context = Login.this;
 
     private Boolean intranetConnection = false;
@@ -79,7 +84,7 @@ public class Login extends Activity{
                             if(!result.equals(LOGIN_FAIL)){
                                 intranetLoginSuccess = true;
                             }
-                            if(result.equals(SUCCESS) && intranetConnection && intranetLoginSuccess){
+                            if(result.equals(SUCCESS)){
                                 intranetSuccess = true;
                             }
                         }}).execute();
@@ -94,7 +99,7 @@ public class Login extends Activity{
                                 if(!result.equals(LOGIN_FAIL)){
                                     BBLoginSuccess = true;
                                 }
-                                if(result.equals(SUCCESS) && BBConnection && BBLoginSuccess){
+                                if(result.equals(SUCCESS)){
                                     BBSuccess = true;
                                 }
                             }
@@ -108,9 +113,9 @@ public class Login extends Activity{
             @Override
             public void onReceive(Context context, Intent intent) {
                 progressBar.setVisibility(View.GONE);
-                if (checkLoginsWereSucessful()) {
+                if (checkLoginsWereSucessful() && checkConnectionsWereSuccesful()) {
                     // Notify user
-                    Toast.makeText(context, "Login Successful.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, LOGIN_SUCCESS_MESSAGE, Toast.LENGTH_SHORT).show();
 
                     // Set email credentials
                     setEmailCredentials();
@@ -118,11 +123,16 @@ public class Login extends Activity{
                     // Go to homescreen
                     Intent menuIntent = new Intent("edharper.uniwebsystemsaggregationapp.HomeScreen");
                     startActivity(menuIntent);
-                } else {
-                    Toast.makeText(context, "Currently unable to connect to server. Please try again later.", Toast.LENGTH_SHORT).show();
+                } else if(!checkLoginsWereSucessful()){
+                    Toast.makeText(context, LOGIN_FAIL_MESSAGE , Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, CONNECTION_FAIL_MESSAGE, Toast.LENGTH_SHORT).show();
+
                 }
+                resetBooleans();
             }
         }, new IntentFilter("all_tasks_finished"));
+        resetBooleans();
     }
 
 
@@ -131,11 +141,48 @@ public class Login extends Activity{
      * @return the login success status
      */
     public Boolean checkLoginsWereSucessful(){
-        if(intranetSuccess && BBSuccess){
+        if(intranetLoginSuccess && BBLoginSuccess){
             return true;
         }else{
             return false;
         }
+    }
+
+    /**
+     * Checks both Async tasks connected succesfully
+     * @return boolean connection successful
+     */
+    public Boolean checkConnectionsWereSuccesful(){
+        if(intranetConnection && BBConnection){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Checks for full success
+     * @return full success
+     */
+    public Boolean checkSuccess(){
+        if(intranetSuccess & BBSuccess){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Resets all boolean values
+     */
+    public void resetBooleans(){
+        intranetConnection = false;
+        intranetLoginSuccess = false;
+        intranetSuccess = false;
+
+        BBConnection = false;
+        BBLoginSuccess = false;
+        BBSuccess = false;
     }
 
     /**
@@ -144,7 +191,6 @@ public class Login extends Activity{
     public void setEmailCredentials(){
         EmailUser emailUser = new EmailUser(username, password);
     }
-
 
 }
 
