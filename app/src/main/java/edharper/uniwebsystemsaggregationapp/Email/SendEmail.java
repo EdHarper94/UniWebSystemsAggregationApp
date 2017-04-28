@@ -98,7 +98,7 @@ public class SendEmail extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
 
-        session = Session.getDefaultInstance(props, new Authenticator() {
+        session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(EmailUser.getEmailAddress(), EmailUser.getPassword());

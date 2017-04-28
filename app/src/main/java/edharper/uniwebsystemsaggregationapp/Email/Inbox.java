@@ -80,7 +80,7 @@ public class Inbox extends Activity {
 
     private final String CONNECTION_ERROR = "Cannot connect to server, please try again later.";
 
-    private Properties props = new Properties();
+    private Properties props =  new ServerProperties().getInboxProperties();
 
     private Folder inbox;
     private Session session;
@@ -369,7 +369,6 @@ public class Inbox extends Activity {
         @Override
         protected Void doInBackground(Boolean... params) {
 
-            props = new ServerProperties().getInboxProperties();
             Boolean isRefresh = params[0];
 
             try {
