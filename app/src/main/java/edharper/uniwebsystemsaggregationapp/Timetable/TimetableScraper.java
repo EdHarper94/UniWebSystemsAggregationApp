@@ -76,6 +76,7 @@ public class TimetableScraper extends Activity {
     // Date variables
     private static int weeksFromToday = 0;
     private static String unformattedDate = "";
+    private String weekHeading = "";
 
     private Context context = TimetableScraper.this;
     private ProgressDialog pd;
@@ -225,7 +226,7 @@ public class TimetableScraper extends Activity {
             // Check for timetable error
             if(!lectures.isEmpty() && !days.isEmpty() ) {
                 // Set title heading
-                heading.setText(WEEK_HEADING + days.get(0));
+                heading.setText(WEEK_HEADING + weekHeading);
 
                 //Initliase timetable.
                 TimetableGenerator ttg = new TimetableGenerator(context, tl, lectures, days);
@@ -252,7 +253,8 @@ public class TimetableScraper extends Activity {
     public void scrapeHtml(Document htmlDoc){
         // Grab timetable from html document
         table = htmlDoc.getElementById(TIMETABLE);
-
+        // Get page heading
+        weekHeading = htmlDoc.select("#currentweekspan").text();
         //Get day headings
         Elements els = table.getElementsByClass(DAY);
         //Add to days array
