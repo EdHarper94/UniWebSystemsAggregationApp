@@ -169,7 +169,7 @@ public class InboxAdapter extends BaseAdapter{
     private String formatDate(Date date) {
 
         // Format date
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         String formattedDate = df.format(date);
         return formattedDate;
     }
