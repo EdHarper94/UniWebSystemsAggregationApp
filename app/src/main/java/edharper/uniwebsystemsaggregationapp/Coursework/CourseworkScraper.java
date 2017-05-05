@@ -379,11 +379,11 @@ public class CourseworkScraper extends Activity {
          * @param result
          */
         protected void onPostExecute(Void result) {
-            /*
+
             if (scrapeException != null) {
                 Toast.makeText(context, CONNECTION_ERROR, Toast.LENGTH_LONG).show();
                 scrapeException.printStackTrace();
-            }*/
+            }
 
             if (exception == null) {
                 if (type.equals(CURRENT_CW) && cCourseworks != null) {
